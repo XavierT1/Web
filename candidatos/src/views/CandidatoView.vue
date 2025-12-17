@@ -3,7 +3,7 @@
     <h1>Aprobación de Candidatos</h1>
     
     <div class="contenedor-componentes">
-      <ComponenteFormulario @agregar-data="procesarNuevoCandidato" />
+      <ComponenteFormulario :accionAgregar="procesarNuevoCandidato" />
       
       <ComponenteTabla :lista="listaCandidatos" />
     </div>
@@ -21,7 +21,6 @@ export default {
   },
   data() {
     return {
-      
       listaCandidatos: []
     }
   },
@@ -40,5 +39,8 @@ export default {
 }
 h1 {
   margin-bottom: 20px;
+}
+.contenedor-componentes {
+  
 }
 </style>

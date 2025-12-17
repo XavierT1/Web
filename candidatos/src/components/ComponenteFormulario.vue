@@ -42,6 +42,8 @@
 import { obtenerCandidatoFachada } from '@/clients/CandidatoClient.js';
 
 export default {
+  props: ['accionAgregar'], 
+  
   data() {
     return {
       fotografia: '',
@@ -79,8 +81,10 @@ export default {
         genero: this.genero
       };
 
-      this.$emit('agregar-data', nuevoCandidato);
-      
+      if (this.accionAgregar) {
+        this.accionAgregar(nuevoCandidato);
+      }
+ 
       this.fotografia = '';
       this.titulo = '';
       this.nombre = '';
@@ -105,7 +109,7 @@ export default {
 .campo-foto {
   display: flex;
   justify-content: space-between;
-  align-items: center;           
+  align-items: center;            
   margin-bottom: 15px;
 }
 
