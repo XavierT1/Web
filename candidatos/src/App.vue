@@ -1,14 +1,14 @@
 <template>
-  <ApprovalPage />
+  <CandidatoView />
 </template>
 
 <script>
-import ApprovalPage from './views/ApprovalPage.vue'
+import CandidatoView from './views/CandidatoView.vue'
 
 export default {
   name: 'App',
   components: {
-    ApprovalPage
+    CandidatoView
   }
 }
 </script>
