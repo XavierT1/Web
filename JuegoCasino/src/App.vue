@@ -1,14 +1,14 @@
 <template>
-  <CasinoGame />
+  <CasinoView />
 </template>
 
 <script>
-import CasinoGame from './views/CasinoGame.vue'
+import CasinoView from './views/CasinoView.vue'
 
 export default {
   name: 'App',
   components: {
-    CasinoGame
+    CasinoView
   }
 }
 </script>
