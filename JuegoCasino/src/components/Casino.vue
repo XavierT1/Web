@@ -7,7 +7,6 @@
 
 <script>
 export default {
-  // Recibimos la información desde el padre (CasinoView)
   props: ['imagenSrc', 'texto']
 }
 </script>
@@ -18,7 +17,7 @@ export default {
   padding: 10px;
   text-align: center;
   margin: 10px;
-  display: inline-block; /* Para que se pongan uno al lado del otro */
+  display: inline-block; 
   width: 200px;
 }
 

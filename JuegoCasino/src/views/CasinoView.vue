@@ -35,9 +35,7 @@
 </template>
 
 <script>
-// Importamos el componente hijo
 import Casino from '@/components/Casino.vue';
-// Importamos la fachada del cliente
 import { consumirAPIFachada } from '@/clients/CasinoClient.js';
 
 export default {
@@ -50,7 +48,6 @@ export default {
       intentos: 0,
       juegoTerminado: false,
       gano: false,
-      // Inicializamos las 3 casillas con las imágenes de Pokemon indicadas [cite: 16, 17]
       casillas: [
         { 
           imagen: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg', 
@@ -69,24 +66,17 @@ export default {
   },
   methods: {
     async jugar() {
-      // 1. Aumentamos el intento [cite: 46]
       this.intentos++;
 
-      // 2. Variable para contar cuantos 'yes' salen en esta tirada
       let contadorYes = 0;
-
-      // 3. Iteramos 3 veces para actualizar cada casilla
-      // Usamos un bucle for clásico para manejar el async/await ordenadamente
       for (let i = 0; i < 3; i++) {
         try {
-          // Llamamos a la API usando la fachada
+          
           const respuesta = await consumirAPIFachada();
           
-          // Actualizamos la casilla actual con la respuesta de la API [cite: 30, 31]
           this.casillas[i].imagen = respuesta.image;
           this.casillas[i].texto = respuesta.answer;
 
-          // Contamos si salió 'yes'
           if (respuesta.answer === 'yes') {
             contadorYes++;
           }
@@ -96,7 +86,6 @@ export default {
         }
       }
 
-      // 4. Calculamos el puntaje según las reglas [cite: 41, 42, 43, 44]
       if (contadorYes === 3) {
         this.puntaje += 5;
       } else if (contadorYes === 2) {
@@ -107,14 +96,11 @@ export default {
         this.puntaje += 0;
       }
 
-      // 5. Verificamos condiciones de fin de juego
-      
-      // Caso VICTORIA: Puntaje >= 10 [cite: 45]
       if (this.puntaje >= 10) {
         this.juegoTerminado = true;
         this.gano = true;
       } 
-      // Caso DERROTA: 5 intentos y no llegó a 10 puntos [cite: 54]
+
       else if (this.intentos >= 5) {
         this.juegoTerminado = true;
         this.gano = false;
@@ -122,13 +108,11 @@ export default {
     },
 
     reiniciar() {
-      // Reseteamos todas las variables al estado inicial (P1) [cite: 66]
       this.puntaje = 0;
       this.intentos = 0;
       this.juegoTerminado = false;
       this.gano = false;
-      
-      // Restauramos las imágenes de Pokemon iniciales
+   
       this.casillas = [
         { imagen: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg', texto: 'XXXXXXXXX' },
         { imagen: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg', texto: 'XXXXXXXXX' },

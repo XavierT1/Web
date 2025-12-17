@@ -6,8 +6,8 @@
           <th>Título</th>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th>Email (Attr 5)</th>
-          <th>Género (Attr 6)</th>
+          <th>Email</th>
+          <th>Género</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +25,6 @@
 
 <script>
 export default {
-  // Recibe los datos del padre para mostrarlos 
   props: ['lista']
 }
 </script>
@@ -46,8 +45,8 @@ th {
   padding: 10px;
 }
 td {
-  border: 1px solid blue; /* Bordes azules según imagen */
+  border: 1px solid blue; 
   padding: 10px;
-  color: #008fca; /* Azul claro para el texto */
+  color: #008fca;
 }
 </style>

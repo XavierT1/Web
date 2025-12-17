@@ -57,23 +57,20 @@ export default {
       try {
         const data = await obtenerCandidatoFachada();
         
-        // Mapeo de datos según instrucciones del PDF [cite: 113-120]
         this.fotografia = data.picture.large;
         this.titulo = data.name.title;
         this.nombre = data.name.first;
         this.apellido = data.name.last;
-        this.email = data.email; // Atributo 5 elegido
-        this.genero = data.gender; // Atributo 6 elegido
+        this.email = data.email; 
+        this.genero = data.gender;
 
       } catch (error) {
         console.error("Error al buscar candidato", error);
       }
     },
     agregarCandidato() {
-      // Validamos que haya datos antes de agregar
       if (this.nombre === '') return;
 
-      // Creamos el objeto candidato
       const nuevoCandidato = {
         titulo: this.titulo,
         nombre: this.nombre,
@@ -82,11 +79,8 @@ export default {
         genero: this.genero
       };
 
-      // Emitimos el evento al padre para que lo guarde en la lista
-      // Esto cumple con enviar datos para el componente 2 
       this.$emit('agregar-data', nuevoCandidato);
       
-      // Opcional: Limpiar formulario
       this.fotografia = '';
       this.titulo = '';
       this.nombre = '';
@@ -110,8 +104,8 @@ export default {
 
 .campo-foto {
   display: flex;
-  justify-content: space-between; /* Texto izquierda, Foto derecha */
-  align-items: center;            /* Centrados verticalmente */
+  justify-content: space-between;
+  align-items: center;           
   margin-bottom: 15px;
 }
 
@@ -131,7 +125,7 @@ export default {
   border: 1px solid #ddd;
   border-radius: 5px;
   margin: 0; 
-} /* <--- TE FALTABA ESTA LLAVE DE CIERRE */
+}
 
 .campo {
   margin-bottom: 10px;

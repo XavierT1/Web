@@ -24,7 +24,7 @@ export default {
 .contenedor-mensajes {
     margin-top: 20px;
     text-align: center;
-    border: 1px solid black; /* Recuadro opcional para agrupar mensaje */
+    border: 1px solid black;
     padding: 10px;
     display: inline-block;
 }

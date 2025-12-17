@@ -9,7 +9,6 @@
 
 <script>
 export default {
-  // Recibimos imagen y texto desde el padre
   props: ['imagenSrc', 'nombre']
 }
 </script>
@@ -25,7 +24,7 @@ export default {
 .imagen-contenedor {
     width: 200px;
     height: 200px;
-    display: flex; /* Para centrar la imagen dentro si es más pequeña */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -39,6 +38,6 @@ export default {
 .nombre-pokemon {
   font-weight: bold;
   margin-top: 10px;
-  text-transform: uppercase; /* El nombre suele salir en minúscula de la API */
+  text-transform: uppercase;
 }
 </style>

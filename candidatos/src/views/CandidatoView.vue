@@ -21,12 +21,11 @@ export default {
   },
   data() {
     return {
-      // Esta lista almacena todos los candidatos agregados
+      
       listaCandidatos: []
     }
   },
   methods: {
-    // Método que recibe el objeto del hijo (Formulario) y lo guarda
     procesarNuevoCandidato(candidato) {
       this.listaCandidatos.push(candidato);
     }
